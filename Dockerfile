@@ -14,7 +14,8 @@ COPY ./certs/* ./
 WORKDIR /etc
 COPY apache2/* /etc/apache2/
 
-EXPOSE 8080
+EXPOSE 80
+EXPOSE 443
 EXPOSE 514
 
 CMD sudo a2enmod headers
