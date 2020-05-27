@@ -1,4 +1,4 @@
-FROM debian: latest
+FROM debian:latest
 VOLUME tmp root
 MAINTAINER Bhaskar Jayaraman bhaskar@fastly.com
 
