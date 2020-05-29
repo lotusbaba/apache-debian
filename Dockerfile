@@ -15,8 +15,6 @@ RUN apt-get --assume-yes install sudo
 RUN apt-get --assume-yes install vim
 
 WORKDIR /root 
-COPY ./installscript.sh .
-RUN chmod +x installscript.sh
 
 RUN mkdir certs
 WORKDIR /root/certs
