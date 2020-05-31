@@ -1,0 +1,25 @@
+steps:
+
+  # build the container image
+  - name: gcr.io/cloud-builders/docker
+    args: [ build, -t, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest, . ]
+
+  # push the container image to Container Registry
+  - name: gcr.io/cloud-builders/docker
+    args: [ push, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest ]
+
+  # Deploy container image or if it already exists just update it
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: 'bash'
+    args: 
+    - '-c'
+    - |
+      compute instances create-with-container fastly-apache-server --zone=us-central1-a --container-image=gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest || compute instances update-container fastly-apache-server --container-image=gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest
+
+  # Update container image to Cloud Run
+  #- name: gcr.io/cloud-builders/gcloud
+  #  args: [ compute, instances, update-container, fastly-apache-server,  --container-image, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest]
+
+images:
+
+- gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest
