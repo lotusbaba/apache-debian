@@ -18,7 +18,7 @@ steps:
 
   # Update container image to Cloud Run
   - name: gcr.io/cloud-builders/gcloud
-    args: [ compute, instances, update-container, fastly-apache-server,  --container-image, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest]
+    args: [ compute, instances, update-container, fastly-apache-server, --zone, us-central1-a, --container-image, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest]
 
 images:
 
