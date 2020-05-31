@@ -12,7 +12,6 @@ steps:
   - name: gcr.io/cloud-builders/gcloud
     entrypoint: 'bash'
     args: 
-    - '-c'
     - |
       compute instances create-with-container fastly-apache-server --zone=us-central1-a --container-image=gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest || compute instances update-container fastly-apache-server --container-image=gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest
 
