@@ -2,11 +2,11 @@ steps:
 
   # build the container image
   - name: gcr.io/cloud-builders/docker
-    args: [ build, -t, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest, . ]
+    args: [ build, -t, gcr.io/lofty-memento-224700/apache-ubuntu-debian:latest, . ]
 
   # push the container image to Container Registry
   - name: gcr.io/cloud-builders/docker
-    args: [ push, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest ]
+    args: [ push, gcr.io/lofty-memento-224700/apache-ubuntu-debian:latest ]
 
   # Create an instance and deploy a container image 
   - name: gcr.io/cloud-builders/gcloud
@@ -14,12 +14,12 @@ steps:
     args: 
     - '-c'
     - |
-      gcloud compute instances create-with-container fastly-apache-server --zone=us-central1-c --container-image=gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest || exit 0
+      gcloud compute instances create-with-container fastly-apache-server --zone=us-central1-c --container-image=gcr.io/lofty-memento-224700/apache-ubuntu-debian:latest || exit 0
 
   # Update container image to Cloud Run
   - name: gcr.io/cloud-builders/gcloud
-    args: [ compute, instances, update-container, fastly-apache-server, --zone, us-central1-c, --container-image, gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest]
+    args: [ compute, instances, update-container, fastly-apache-server, --zone, us-central1-c, --container-image, gcr.io/lofty-memento-224700/apache-ubuntu-debian:latest]
 
 images:
 
-- gcr.io/bjayaraman-sales-eng-b905/apache-ubuntu:latest
+- gcr.io/lofty-memento-224700/apache-ubuntu-debian:latest
