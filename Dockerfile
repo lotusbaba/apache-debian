@@ -1,6 +1,6 @@
 FROM ubuntu:latest
-VOLUME tmp root
-MAINTAINER Bhaskar Jayaraman bhaskar@fastly.com
+VOLUME /tmp /root
+MAINTAINER Bhaskar Jayaraman jay.bhaskar@gmail.com
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Los_Angeles
@@ -18,7 +18,7 @@ WORKDIR /root
 
 RUN mkdir certs
 WORKDIR /root/certs
-COPY ./certs/* ./
+COPY ./certs/* /root/certs
 
 WORKDIR /etc
 ADD apache2 /etc/apache2
