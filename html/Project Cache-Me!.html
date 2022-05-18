@@ -2,6 +2,20 @@
 <!-- saved from url=(0023)http://198.199.102.179/ -->
 
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script>
+    window.GROWTHBOOK_CONFIG = {
+      // Optional logged-in user id
+      userId: "123",
+      // Impression tracking callback (e.g. Segment, Mixpanel, GA)
+      track: function(experimentId, variationId) {
+        analytics.track("Experiment Viewed", {
+          experimentId,
+          variationId
+        })
+      }
+    }
+  </script>
+  <script async src="http://35.247.100.202:3100/js/key_dev_798676fa287ab57b.js"></script>
     <title>Project Cache-Me!</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -249,19 +263,7 @@
 
   <script src="./Project Cache-Me!_files/main.js"></script>
     
-  <script>
-    window.GROWTHBOOK_CONFIG = {
-      // Optional logged-in user id
-      userId: "123",
-      // Impression tracking callback (e.g. Segment, Mixpanel, GA)
-      track: function(experimentId, variationId) {
-        analytics.track("Experiment Viewed", {
-          experimentId,
-          variationId
-        })
-      }
-    }
-  </script>
-  <script async src="http://35.247.100.202:3100/js/key_dev_798676fa287ab57b.js"></script>
 
-</body></html>
+
+</body>
+</html>
