@@ -14,6 +14,7 @@ RUN apt-get --assume-yes install curl
 RUN apt-get --assume-yes install sudo
 RUN apt-get --assume-yes install vim
 
+
 WORKDIR /root 
 
 RUN mkdir certs
@@ -27,8 +28,11 @@ RUN chmod +x /etc/apache2/pphrase
 WORKDIR /var/www/
 ADD html /var/www/html
 
+RUN service apache2 restart
+
 EXPOSE 80 
 EXPOSE 443
 EXPOSE 514
 
-ENTRYPOINT ["systemctl", "start", "apache2"]
+
+#ENTRYPOINT ["systemctl", "start", "apache2"]
